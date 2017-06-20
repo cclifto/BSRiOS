@@ -1,0 +1,9 @@
+{
+  "commitish" : "2.6.3",
+  "iOS" : [
+    {
+      "hash" : "e64de2554fa3cc21330bdce046e89229ec9960ce4b44f49c299a198522fd9ad3",
+      "name" : "Material"
+    }
+  ]
+}

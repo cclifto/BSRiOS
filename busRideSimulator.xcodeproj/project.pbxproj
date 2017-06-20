@@ -12,7 +12,23 @@
 		1306FF0F1EF31F58001A2128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1306FF0D1EF31F58001A2128 /* Main.storyboard */; };
 		1306FF111EF31F58001A2128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1306FF101EF31F58001A2128 /* Assets.xcassets */; };
 		1306FF141EF31F58001A2128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1306FF121EF31F58001A2128 /* LaunchScreen.storyboard */; };
+		1306FF211EF32833001A2128 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1306FF201EF32833001A2128 /* Material.framework */; };
+		1306FF221EF32833001A2128 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1306FF201EF32833001A2128 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1306FF231EF32833001A2128 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1306FF221EF32833001A2128 /* Material.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1306FF061EF31F58001A2128 /* busRideSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = busRideSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		1306FF101EF31F58001A2128 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1306FF131EF31F58001A2128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1306FF151EF31F58001A2128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1306FF201EF32833001A2128 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1306FF211EF32833001A2128 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +56,7 @@
 		1306FEFD1EF31F58001A2128 = {
 			isa = PBXGroup;
 			children = (
+				1306FF201EF32833001A2128 /* Material.framework */,
 				1306FF081EF31F58001A2128 /* busRideSimulator */,
 				1306FF071EF31F58001A2128 /* Products */,
 			);
@@ -74,6 +93,8 @@
 				1306FF021EF31F58001A2128 /* Sources */,
 				1306FF031EF31F58001A2128 /* Frameworks */,
 				1306FF041EF31F58001A2128 /* Resources */,
+				1306FF1B1EF324BC001A2128 /* ShellScript */,
+				1306FF231EF32833001A2128 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,6 +151,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1306FF1B1EF324BC001A2128 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Material.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1306FF021EF31F58001A2128 /* Sources */ = {
@@ -262,6 +300,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = busRideSimulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaiOne.busRideSimulator;
@@ -274,6 +316,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = busRideSimulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaiOne.busRideSimulator;
